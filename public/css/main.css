@@ -1,0 +1,52 @@
+/**
+ * Navigation CSS
+ */
+.navbar-inverse {
+   background-color: #303F9F;
+   border-color: #303F9F;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+   color: #ffffff;
+   font-weight: 300;
+}
+
+.navbar-inverse .navbar-brand {
+   color: #ffffff;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #303F9F;
+    font-weight: 300;
+}
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: #303F9F;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #21654C;
+}
+
+.search {
+    color: #FFFFFF;
+    font-weight: 300;
+}
+
+.btn:not(.btn-raised), .btn:not(.btn-raised).btn-default, .input-group-btn .btn:not(.btn-raised), .input-group-btn .btn:not(.btn-raised).btn-default {
+    color: #f5f5f5;
+}
+
+/**
+ * Register CSS
+ */
+.register {
+    margin-top: 6%;
+}
+
+.register-btn {
+    margin-top: 5px;
+    background-color: #303F9F;
+    color: #fff;
+    padding: 1% 3%;
+}
