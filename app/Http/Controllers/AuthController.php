@@ -35,10 +35,18 @@ class AuthController extends Controller
         ]);
 
         if (! Auth::attempt($request->only(['email', 'password']))) {
+
+            /**
+             * Provide an alert informing user that his/her credentials don't match
+             * the database records
+             */
             alert()->error('Could not log you in with those credentials', 'Sorry');
+
+            // If auth has failled redirect back to login
             return redirect()->route('login');
         }
 
+        // If auth is successfull redirect back to the homepage
         return redirect()->route('home');
     }
     /**
@@ -78,6 +86,22 @@ class AuthController extends Controller
         // Provide a sweet alert pop up
         alert()->success('Your account has been created and you can now log in', 'Success');
 
-        return redirect()->route('home');
+        return redirect()->route('login');
+    }
+
+    /**
+     * To log out users
+     * @return logout view
+     */
+    public function getLogout()
+    {
+        // Log out the user
+        Auth::logout();
+
+        // Provide a sweet alert telling the user he/she is now logged out
+        alert()->success('Your are now logged out', 'Bye');
+
+        // Redirect to login page
+        return redirect()->route('login');
     }
 }

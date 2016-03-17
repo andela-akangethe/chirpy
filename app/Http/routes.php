@@ -39,3 +39,8 @@ Route::get('/auth/register', [
 Route::post('/auth/register', [
     'uses' => 'AuthController@postRegister'
 ]);
+
+Route::get('/logout', [
+    'uses' => 'AuthController@getLogout',
+    'as'   => 'logout'
+]);
