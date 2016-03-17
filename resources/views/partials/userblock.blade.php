@@ -1,6 +1,6 @@
 <div class="media">
     <a class="pull-left" href="{{ route('profile' , ['id' => $user->id ]) }}">
-        <img class="media-object" alt="{{ $user->username }}" src="{{ $user->getAvatar() }}">
+        <img class="media-object userProfileImage" alt="{{ $user->username }}" src="{{ $user->getAvatar() }}">
     </a>
     <div class="media-body">
         @if ($user->getName())

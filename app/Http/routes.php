@@ -53,7 +53,7 @@ Route::get('/logout', [
 Route::get('/search', [
     'uses'       => 'SearchController@getResults',
     'as'         => 'search',
-    'middleware' => 'auth'
+    'middleware' => ['auth']
 ]);
 
 /**
@@ -62,5 +62,15 @@ Route::get('/search', [
 Route::get('/user/{id}', [
     'uses' => 'ProfileController@getProfile',
     'as'   => 'profile',
-    'middleware' => 'auth'
+    'middleware' => ['auth']
+]);
+
+Route::get('/profile/edit', [
+    'uses'       => 'ProfileController@getEditProfile',
+    'as'         => 'editProfile',
+    'middleware' => ['auth']
+]);
+
+Route::post('/profile/edit', [
+    'uses' => 'ProfileController@postEditProfile'
 ]);

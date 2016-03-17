@@ -35,7 +35,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ auth()->user()->username }} <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="{{ route('profile', ['id' => auth()->user()->id ])}}">My Profile</a></li>
-              <li><a href="#">Update Profile</a></li>
+              <li><a href="{{ route('editProfile')}}">Update Profile</a></li>
               <li><a href="{{ route('logout') }}">Logout</a></li>
             </ul>
           </li>
