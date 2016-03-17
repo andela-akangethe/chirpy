@@ -19,7 +19,7 @@
             <li><a href="#">Friends</a></li>
           </ul>
           <div class="col-sm-3 col-md-3">
-              <form class="navbar-form" role="search">
+              <form class="navbar-form" role="search" action="{{ route('search') }}">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Find a friend" name="query">
                     <div class="input-group-btn">
@@ -34,6 +34,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ auth()->user()->username }} <b class="caret"></b></a>
             <ul class="dropdown-menu">
+              <li><a href="{{ route('profile', ['id' => auth()->user()->id ])}}">My Profile</a></li>
               <li><a href="#">Update Profile</a></li>
               <li><a href="{{ route('logout') }}">Logout</a></li>
             </ul>

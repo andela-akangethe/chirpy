@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace app;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -35,7 +35,6 @@ class User extends Model implements AuthenticatableContract,
         'location',
         'first_name',
         'last_name'
-
     ];
 
     /**
@@ -44,4 +43,35 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    /**
+     * Get Users First Name and or Last Name
+     *
+     * @return users first name and or last name
+     */
+    public function getName()
+    {
+        /**
+         * If both first and last name exists show
+         * them else only show first or last name
+         */
+        if ($this->first_name && $this->last_name) {
+
+            $firstName = ucfirst($this->first_name);
+            $lastName = ucfirst($this->last_name);
+
+            return "$firstName $lastName";
+        } elseif ($this->first_name) {
+            return ucfirst($this->first_name);
+        } elseif ($this->last_name) {
+            return ucfirst($this->last_name);
+        }
+
+        return null;
+    }
+
+    public function getAvatar()
+    {
+        return "https://www.gravatar.com/avatar/{{ md5($this->email) }}";
+    }
 }

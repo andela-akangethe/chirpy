@@ -23,8 +23,9 @@ Route::get('/', [
 * Authentication routes
 */
 Route::get('/auth/login', [
-   'uses' => 'AuthController@getLogin',
-   'as'   => 'login'
+   'uses'       => 'AuthController@getLogin',
+   'as'         => 'login',
+   'middleware' => ['guest']
 ]);
 
 Route::post('/auth/login', [
@@ -33,7 +34,8 @@ Route::post('/auth/login', [
 
 Route::get('/auth/register', [
     'uses' => 'AuthController@getRegister',
-    'as'   => 'register'
+    'as'   => 'register',
+    'middleware' => ['guest']
 ]);
 
 Route::post('/auth/register', [
@@ -43,4 +45,22 @@ Route::post('/auth/register', [
 Route::get('/logout', [
     'uses' => 'AuthController@getLogout',
     'as'   => 'logout'
+]);
+
+/**
+ * Search route
+ */
+Route::get('/search', [
+    'uses'       => 'SearchController@getResults',
+    'as'         => 'search',
+    'middleware' => 'auth'
+]);
+
+/**
+ * User profile route
+ */
+Route::get('/user/{id}', [
+    'uses' => 'ProfileController@getProfile',
+    'as'   => 'profile',
+    'middleware' => 'auth'
 ]);
